@@ -1,0 +1,13 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "A traves de esta api recibimos la peticion POST del cliente y realizamos el proceso para crear un nuevo registro de videojuego en la base de datos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node index.js"
+  },
+  "keywords": ["javascript", "nodejs", "express", "reactjs", "sequelize", "postgresql"],
+  "author": "Josue Evangelista Cruz",
+  "license": "ISC"
+}
