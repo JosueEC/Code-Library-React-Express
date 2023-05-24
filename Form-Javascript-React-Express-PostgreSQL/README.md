@@ -30,8 +30,14 @@ npm -v
 
 -  **react**: 17.0.1
 -  **react-dom**: 17.0.1
--  **express**:
--  **sequelize**:
+-  **express**: 4.18.2
+-  **sequelize**: 6.31.1
+-  **pg**: 8.11.0
+-  **pg-hstore**: 2.3.4
+-  **morgan***: 1.10.0
+-  **cors**: 2.8.5
+-  **dotenv***: 16.0.3
+
 
 **VARIABLES DE ENTORNO:** En la carpeta **`api`** deberás crear un archivo llamado: **`.env`** que tenga la siguiente forma:
 

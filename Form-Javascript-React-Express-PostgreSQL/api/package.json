@@ -18,20 +18,20 @@
   "author": "Josue Evangelista Cruz",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^2.0.22",
-    "standard": "^17.0.0"
+    "nodemon": "2.0.22",
+    "standard": "17.0.0"
   },
   "eslintConfig": {
     "extends": "./node_modules/standard/eslintrc.json"
   },
   "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2",
-    "morgan": "^1.10.0",
-    "node-fetch": "^2.6.11",
-    "pg": "^8.11.0",
-    "pg-hstore": "^2.3.4",
-    "sequelize": "^6.31.1"
+    "cors": "2.8.5",
+    "dotenv": "16.0.3",
+    "express": "4.18.2",
+    "morgan": "1.10.0",
+    "node-fetch": "2.6.11",
+    "pg": "8.11.0",
+    "pg-hstore": "2.3.4",
+    "sequelize": "6.31.1"
   }
 }
