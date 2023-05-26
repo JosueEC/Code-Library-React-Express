@@ -2,7 +2,7 @@ const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
 
-const genreRouter = require('./genre/routes/Genre.routes')
+const genreRouter = require('./genre/routes/genre.routes')
 
 const server = express()
 
