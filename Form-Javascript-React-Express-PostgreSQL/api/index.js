@@ -1,11 +1,13 @@
 const server = require('./src/server')
 const database = require('./src/database')
 
+const { SERVER } = require('./constants')
+
 database.sync({ alter: true })
   .then(() => {
     console.info('synchronized database')
-    server.listen('3001', () => {
-      console.info('online server on port 3001')
+    server.listen(SERVER.PORT, () => {
+      console.info(`online server on port ${SERVER.PORT}`)
     })
   })
   .catch((error) => {
