@@ -15,4 +15,12 @@ defineVideogame(database)
 definePlatform(database)
 defineGenre(database)
 
+const { videogame, platform, genre } = database.models
+
+videogame.belongsToMany(platform, { through: 'game-platform' })
+platform.belongsToMany(videogame, { through: 'game-platform' })
+
+videogame.belongsToMany(genre, { through: 'game-genre' })
+genre.belongsToMany(videogame, { through: 'game-genre' })
+
 module.exports = database
