@@ -1,5 +1,5 @@
 const server = require('./src/server')
-const database = require('./src/database')
+const database = require('./config/database')
 
 const { SERVER } = require('./constants')
 

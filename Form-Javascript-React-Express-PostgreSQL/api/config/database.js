@@ -1,9 +1,9 @@
 require('dotenv').config()
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME } = process.env
 
-const defineVideogame = require('./videogame/models/Videogame.model')
-const definePlatform = require('./platform/models/Platform.model')
-const defineGenre = require('./genre/models/Genre.model')
+const defineVideogame = require('../src/videogame/models/Videogame.model')
+const definePlatform = require('../src/platform/models/Platform.model')
+const defineGenre = require('../src/genre/models/Genre.model')
 
 const Sequelize = require('sequelize')
 
