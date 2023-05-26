@@ -1,8 +1,17 @@
+require('dotenv').config()
+const { HTTP_NOT_ACCEPTABLE, HTTP_CREATED } = process.env
+
 const postGenre = async (req, res) => {
   try {
-    res.status(302).send({ status: 'CREATED', data: 'Data from the post' })
+    res.status(HTTP_CREATED).send({
+      code: Number(HTTP_CREATED),
+      data: 'Data from the post'
+    })
   } catch (error) {
-    res.status(406).send({ status: 'FAILED', error: error.message })
+    res.status(HTTP_NOT_ACCEPTABLE).send({
+      code: Number(HTTP_NOT_ACCEPTABLE),
+      error: error.message
+    })
   }
 }
 
