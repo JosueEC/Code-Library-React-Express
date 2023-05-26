@@ -1,9 +1,9 @@
 const { Router } = require('express')
 
+const genreController = require('../controllers/Genre.controller')
+
 const router = Router()
 
-router.get('/', (req, res) => {
-  res.status(200).send('Welcome to Genre Router')
-})
+router.get('/', genreController.postGenre)
 
 module.exports = router
