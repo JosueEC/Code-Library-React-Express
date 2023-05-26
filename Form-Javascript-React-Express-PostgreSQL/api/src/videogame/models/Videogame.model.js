@@ -40,7 +40,7 @@ module.exports = (database) => {
     },
     released: {
       type: DataTypes.DATEONLY,
-      defaultValue: getActualDate('yyyy-mm-dd'),
+      // defaultValue: getActualDate('yyyy-mm-dd'),
       allowNull: false,
       validate: {
         notEmpty: true,
@@ -55,14 +55,14 @@ module.exports = (database) => {
   })
 }
 
-function getActualDate (format) {
-  const date = new Date()
-  const map = {
-    dd: date.getDate() + 1,
-    mm: date.getMonth() + 1,
-    yy: date.getFullYear().toString().slice(-2),
-    yyyy: date.getFullYear()
-  }
+// function getActualDate (format) {
+//   const date = new Date()
+//   const map = {
+//     dd: date.getDate() + 1,
+//     mm: date.getMonth() + 1,
+//     yy: date.getFullYear().toString().slice(-2),
+//     yyyy: date.getFullYear()
+//   }
 
-  return format.replace(/dd|mm|yyyy/gi, matched => map[matched])
-}
+//   return format.replace(/dd|mm|yyyy/gi, matched => map[matched])
+// }
