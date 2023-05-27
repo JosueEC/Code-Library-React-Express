@@ -1,5 +1,7 @@
 require('dotenv').config()
-const { HTTP_NOT_ACCEPTABLE, HTTP_CREATED } = process.env
+const { HTTP_CREATED } = process.env
+
+const { httpError } = require('../helpers/helperError')
 
 const postGenre = async (req, res) => {
   try {
@@ -8,10 +10,7 @@ const postGenre = async (req, res) => {
       data: 'Data from the post'
     })
   } catch (error) {
-    res.status(HTTP_NOT_ACCEPTABLE).send({
-      code: Number(HTTP_NOT_ACCEPTABLE),
-      error: error.message
-    })
+    httpError(res, error)
   }
 }
 
