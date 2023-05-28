@@ -4,6 +4,6 @@ const genreController = require('../controllers/Genre.controller')
 
 const router = Router()
 
-router.get('/', genreController.postGenre)
+router.post('/', genreController.postGenre)
 
 module.exports = router

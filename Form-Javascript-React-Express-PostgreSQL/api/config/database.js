@@ -23,4 +23,7 @@ platform.belongsToMany(videogame, { through: 'game-platform' })
 videogame.belongsToMany(genre, { through: 'game-genre' })
 genre.belongsToMany(videogame, { through: 'game-genre' })
 
-module.exports = database
+module.exports = {
+  database,
+  ...database.models
+}
