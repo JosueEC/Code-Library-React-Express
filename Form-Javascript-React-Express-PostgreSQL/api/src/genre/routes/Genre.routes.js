@@ -6,4 +6,6 @@ const router = Router()
 
 router.post('/', genreController.postGenre)
 
+router.get('/', genreController.getGenres)
+
 module.exports = router

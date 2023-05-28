@@ -1,5 +1,5 @@
 require('dotenv').config()
-const { HTTP_CREATED } = process.env
+const { HTTP_CREATED, HTTP_FOUND } = process.env
 
 const { httpError } = require('../helpers/helperError')
 
@@ -20,6 +20,18 @@ const postGenre = async (req, res) => {
   }
 }
 
+const getGenres = async (req, res) => {
+  try {
+    res.status(HTTP_FOUND).send({
+      code: Number(HTTP_FOUND),
+      data: 'Genres founded in database'
+    })
+  } catch (error) {
+    httpError(res, error)
+  }
+}
+
 module.exports = {
-  postGenre
+  postGenre,
+  getGenres
 }
