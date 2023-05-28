@@ -3,6 +3,7 @@ const morgan = require('morgan')
 const cors = require('cors')
 
 const genreRouter = require('./genre/routes/genre.routes')
+const platformRouter = require('./platform/routes/platform.routes')
 
 const server = express()
 
@@ -15,5 +16,7 @@ server.get('/', (req, res) => {
 })
 
 server.use('/genre', genreRouter)
+
+server.use('/platform', platformRouter)
 
 module.exports = server
