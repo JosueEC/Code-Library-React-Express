@@ -4,6 +4,7 @@ const { HTTP_CREATED, HTTP_FOUND } = process.env
 const { httpError } = require('../helpers/helperError')
 
 const { createGenre } = require('../services/database/createGenre.service')
+const { findGenres } = require('../services/database/findGenres.service')
 
 const postGenre = async (req, res) => {
   try {
@@ -22,9 +23,11 @@ const postGenre = async (req, res) => {
 
 const getGenres = async (req, res) => {
   try {
+    const genres = await findGenres()
+
     res.status(HTTP_FOUND).send({
       code: Number(HTTP_FOUND),
-      data: 'Genres founded in database'
+      data: genres
     })
   } catch (error) {
     httpError(res, error)
