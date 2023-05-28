@@ -4,6 +4,7 @@ const { HTTP_BAD_REQUEST, HTTP_CREATED, HTTP_NOT_FOUND, HTTP_FOUND } = process.e
 const { httpError } = require('../../helpers/helperError')
 
 const { createPlatform } = require('../services/database/createPlatform.service')
+const { findPlatforms } = require('../services/database/findPlatforms.service')
 
 const postPlatform = async (req, res) => {
   try {
@@ -22,9 +23,11 @@ const postPlatform = async (req, res) => {
 
 const getPlatforms = async (req, res) => {
   try {
+    const platforms = await findPlatforms()
+
     res.status(HTTP_FOUND).send({
       code: Number(HTTP_FOUND),
-      data: 'platforms founded in database'
+      data: platforms
     })
   } catch (error) {
     httpError(res, error, HTTP_NOT_FOUND)
