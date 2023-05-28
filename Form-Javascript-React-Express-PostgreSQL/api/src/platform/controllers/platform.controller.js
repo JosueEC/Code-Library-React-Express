@@ -1,5 +1,5 @@
 require('dotenv').config()
-const { HTTP_BAD_REQUEST, HTTP_CREATED } = process.env
+const { HTTP_BAD_REQUEST, HTTP_CREATED, HTTP_NOT_FOUND, HTTP_FOUND } = process.env
 
 const { httpError } = require('../../helpers/helperError')
 
@@ -20,6 +20,18 @@ const postPlatform = async (req, res) => {
   }
 }
 
+const getPlatforms = async (req, res) => {
+  try {
+    res.status(HTTP_FOUND).send({
+      code: Number(HTTP_FOUND),
+      data: 'platforms founded in database'
+    })
+  } catch (error) {
+    httpError(res, error, HTTP_NOT_FOUND)
+  }
+}
+
 module.exports = {
-  postPlatform
+  postPlatform,
+  getPlatforms
 }

@@ -6,4 +6,6 @@ const router = Router()
 
 router.post('/', platformController.postPlatform)
 
+router.get('/', platformController.getPlatforms)
+
 module.exports = router
