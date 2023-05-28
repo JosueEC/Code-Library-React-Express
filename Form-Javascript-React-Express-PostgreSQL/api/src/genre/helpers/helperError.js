@@ -1,11 +1,17 @@
 require('dotenv').config()
 
-const { HTTP_INTERNAL_SERVER_ERROR } = process.env
+const { HTTP_BAD_REQUEST } = process.env
 
-const httpError = (res, error) => {
+const httpError = (res, error, errorCode) => {
   console.info(error)
-  res.status(HTTP_INTERNAL_SERVER_ERROR).send({
-    code: Number(HTTP_INTERNAL_SERVER_ERROR),
+  if (!errorCode) {
+    res.status(HTTP_BAD_REQUEST).send({
+      code: Number(HTTP_BAD_REQUEST),
+      message: error.message
+    })
+  }
+  res.status(errorCode).send({
+    code: Number(errorCode),
     message: error.message
   })
 }
