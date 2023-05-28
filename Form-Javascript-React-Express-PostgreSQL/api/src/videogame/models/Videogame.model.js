@@ -16,17 +16,29 @@ module.exports = (database) => {
       allowNull: false,
       unique: true,
       validate: {
-        notEmpty: true,
-        isLowerCase: true,
-        len: [2, 50]
+        notEmpty: {
+          msg: 'video game name cannot be empty.'
+        },
+        isLowerCase: {
+          msg: 'video game name must be lowercase.'
+        },
+        len: {
+          args: [2, 50],
+          msg: 'video game name must be between 2 and 50 characters.'
+        }
       }
     },
     description: {
       type: DataTypes.TEXT,
       allowNull: false,
       validate: {
-        notEmpty: true,
-        len: [10, 200]
+        notEmpty: {
+          msg: 'game description cannot be empty.'
+        },
+        len: {
+          args: [10, 200],
+          msg: 'game description must be between 10 and 200 characters.'
+        }
       }
     },
     image: {
@@ -34,18 +46,28 @@ module.exports = (database) => {
       allowNull: false,
       unique: true,
       validate: {
-        notEmpty: true,
-        isUrl: true
+        notEmpty: {
+          msg: 'image URL cannot be empty.'
+        },
+        isUrl: {
+          msg: 'invalid URL format, must be an image URL.'
+        }
       }
     },
     released: {
       type: DataTypes.DATEONLY,
-      // defaultValue: getActualDate('yyyy-mm-dd'),
       allowNull: false,
       validate: {
-        notEmpty: true,
-        isDate: true,
-        len: [10]
+        notEmpty: {
+          msg: 'release date game cannot be empty.'
+        },
+        isDate: {
+          msg: 'release date format must be YYYY-MM-DD.'
+        },
+        len: {
+          args: [11],
+          msg: 'release date game must be less than 11 characters.'
+        }
       }
     }
   },
@@ -54,15 +76,3 @@ module.exports = (database) => {
     freezeTableName: true
   })
 }
-
-// function getActualDate (format) {
-//   const date = new Date()
-//   const map = {
-//     dd: date.getDate() + 1,
-//     mm: date.getMonth() + 1,
-//     yy: date.getFullYear().toString().slice(-2),
-//     yyyy: date.getFullYear()
-//   }
-
-//   return format.replace(/dd|mm|yyyy/gi, matched => map[matched])
-// }
