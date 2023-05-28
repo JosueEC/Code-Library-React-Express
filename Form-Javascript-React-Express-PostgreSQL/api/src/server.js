@@ -4,6 +4,7 @@ const cors = require('cors')
 
 const genreRouter = require('./genre/routes/genre.routes')
 const platformRouter = require('./platform/routes/platform.routes')
+const videogameRouter = require('./videogame/routes/videogame.routes')
 
 const server = express()
 
@@ -18,5 +19,7 @@ server.get('/', (req, res) => {
 server.use('/genre', genreRouter)
 
 server.use('/platform', platformRouter)
+
+server.use('/videogame', videogameRouter)
 
 module.exports = server
