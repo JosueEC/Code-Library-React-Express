@@ -16,9 +16,16 @@ module.exports = (database) => {
       allowNull: false,
       unique: true,
       validate: {
-        len: [2, 50],
-        notEmpty: true,
-        isLowercase: true
+        len: {
+          args: [2, 50],
+          msg: 'genre name must be between 2 and 50 characters in length.'
+        },
+        notEmpty: {
+          msg: 'genre name cannot be empty.'
+        },
+        isLowercase: {
+          msg: 'genre name must be lowercase.'
+        }
       }
     }
   }, {
