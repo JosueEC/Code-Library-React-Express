@@ -1,12 +1,9 @@
 const { Router } = require('express')
 
+const platformController = require('../controllers/platform.controller')
+
 const router = Router()
 
-router.post('/', (req, res) => {
-  res.status(200).send({
-    code: 200,
-    data: 'platform created'
-  })
-})
+router.post('/', platformController.postPlatform)
 
 module.exports = router
