@@ -19,7 +19,7 @@ module.exports = (database) => {
         notEmpty: {
           msg: 'video game name cannot be empty.'
         },
-        isLowerCase: {
+        isLowercase: {
           msg: 'video game name must be lowercase.'
         },
         len: {
@@ -65,7 +65,7 @@ module.exports = (database) => {
           msg: 'release date format must be YYYY-MM-DD.'
         },
         len: {
-          args: [11],
+          args: [10],
           msg: 'release date game must be less than 11 characters.'
         }
       }
