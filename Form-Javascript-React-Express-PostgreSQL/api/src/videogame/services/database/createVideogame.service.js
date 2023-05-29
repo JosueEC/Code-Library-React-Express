@@ -1,6 +1,6 @@
 const { videogame } = require('../database/createVideogame.service')
 
-const createVideogame = async ({ name, description, image, released, platforms, genres, tags }) => {
+const createVideogame = async ({ name, description, image, released, platforms, genres }) => {
   const newVideogame = await videogame.create({
     name,
     description,
@@ -10,7 +10,6 @@ const createVideogame = async ({ name, description, image, released, platforms, 
 
   newVideogame.addPlatforms(platforms)
   newVideogame.addGenres(genres)
-  newVideogame.addTags(tags)
 
   return newVideogame
 }
