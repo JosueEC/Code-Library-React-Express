@@ -1,4 +1,4 @@
-const { videogame } = require('../database/createVideogame.service')
+const { videogame } = require('../../../../config/database')
 
 const createVideogame = async ({ name, description, image, released, platforms, genres }) => {
   const newVideogame = await videogame.create({
