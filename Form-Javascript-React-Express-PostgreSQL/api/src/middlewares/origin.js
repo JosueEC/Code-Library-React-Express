@@ -1,4 +1,4 @@
-require('dotenv').congi()
+require('dotenv').config()
 const { HTTP_UNAUTHORIZED } = process.env
 
 const checkOrigin = (req, res, next) => {
@@ -6,11 +6,12 @@ const checkOrigin = (req, res, next) => {
 
   if (userToken === '123') {
     next()
+  } else {
+    res.status(HTTP_UNAUTHORIZED).send({
+      code: Number(HTTP_UNAUTHORIZED),
+      error: 'unauthorized user'
+    })
   }
-  res.status(HTTP_UNAUTHORIZED).send({
-    code: Number(HTTP_UNAUTHORIZED),
-    error: 'unauthorized user'
-  })
 }
 
 module.exports = {
