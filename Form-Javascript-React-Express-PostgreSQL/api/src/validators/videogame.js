@@ -1,5 +1,7 @@
 const { check } = require('express-validator')
 
+const { validateResult } = require('../helpers/validateHelper')
+
 const validateCreate = [
   check('name')
     .exists()
@@ -23,7 +25,7 @@ const validateCreate = [
     .notEmpty()
     .isArray(),
   (req, res, next) => {
-
+    validateResult(req, res, next)
   }
 ]
 
