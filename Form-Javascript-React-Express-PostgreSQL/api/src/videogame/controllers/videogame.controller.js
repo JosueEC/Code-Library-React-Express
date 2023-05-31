@@ -4,6 +4,7 @@ const { HTTP_BAD_REQUEST, HTTP_NOT_FOUND, HTTP_CREATED, HTTP_FOUND } = process.e
 const { httpError } = require('../../helpers/helperError')
 
 const { createVideogame } = require('../services/database/createVideogame.service')
+const { findAllVideogames } = require('../services/database/findAllVideogames.service')
 
 const saveVideogame = async (req, res) => {
   try {
@@ -23,15 +24,14 @@ const saveVideogame = async (req, res) => {
 // TODO: create the findAllVideogames service for this handler
 const findVideogames = async (req, res) => {
   try {
+    const allVideogames = await findAllVideogames()
+
     res.status(HTTP_FOUND).send({
       code: Number(HTTP_FOUND),
-      data: 'found games in databaase handler'
+      data: allVideogames
     })
   } catch (error) {
-    res.status(HTTP_NOT_FOUND).send({
-      code: Number(HTTP_NOT_FOUND),
-      error: 'Not Found'
-    })
+    httpError(res, error, HTTP_NOT_FOUND)
   }
 }
 
