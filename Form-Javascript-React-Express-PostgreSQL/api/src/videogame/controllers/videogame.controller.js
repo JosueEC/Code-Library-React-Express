@@ -1,5 +1,5 @@
 require('dotenv').config()
-const { HTTP_BAD_REQUEST, HTTP_CREATED } = process.env
+const { HTTP_BAD_REQUEST, HTTP_NOT_FOUND, HTTP_CREATED, HTTP_FOUND } = process.env
 
 const { httpError } = require('../../helpers/helperError')
 
@@ -20,6 +20,22 @@ const saveVideogame = async (req, res) => {
   }
 }
 
+// TODO: create the findAllVideogames service for this handler
+const findVideogames = async (req, res) => {
+  try {
+    res.status(HTTP_FOUND).send({
+      code: Number(HTTP_FOUND),
+      data: 'found games in databaase handler'
+    })
+  } catch (error) {
+    res.status(HTTP_NOT_FOUND).send({
+      code: Number(HTTP_NOT_FOUND),
+      error: 'Not Found'
+    })
+  }
+}
+
 module.exports = {
-  saveVideogame
+  saveVideogame,
+  findVideogames
 }
