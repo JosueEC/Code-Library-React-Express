@@ -1,6 +1,7 @@
 require('dotenv').config()
 const { HTTP_CREATED, HTTP_FOUND, HTTP_BAD_REQUEST, HTTP_NOT_FOUND } = process.env
 
+const { httpSuccess } = require('../../helpers/success.helper')
 const { httpError } = require('../../helpers/error.helper')
 
 const { createGenre } = require('../services/database/createGenre.service')
@@ -11,11 +12,7 @@ const postGenre = async (req, res) => {
     const { name } = req.body
 
     const newGenre = await createGenre(name)
-
-    res.status(HTTP_CREATED).send({
-      code: Number(HTTP_CREATED),
-      data: newGenre
-    })
+    httpSuccess(res, newGenre, HTTP_CREATED)
   } catch (error) {
     httpError(res, error, HTTP_BAD_REQUEST)
   }
@@ -24,11 +21,7 @@ const postGenre = async (req, res) => {
 const getGenres = async (req, res) => {
   try {
     const genres = await findGenres()
-
-    res.status(HTTP_FOUND).send({
-      code: Number(HTTP_FOUND),
-      data: genres
-    })
+    httpSuccess(res, genres, HTTP_FOUND)
   } catch (error) {
     httpError(res, error, HTTP_NOT_FOUND)
   }
