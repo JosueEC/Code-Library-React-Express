@@ -1,7 +1,7 @@
 require('dotenv').config()
 const { HTTP_BAD_REQUEST, HTTP_CREATED, HTTP_NOT_FOUND, HTTP_FOUND } = process.env
 
-const { httpError } = require('../../helpers/helperError')
+const { httpError } = require('../../helpers/error.helper')
 
 const { createPlatform } = require('../services/database/createPlatform.service')
 const { findPlatforms } = require('../services/database/findPlatforms.service')

@@ -1,7 +1,7 @@
 require('dotenv').config()
 const { HTTP_BAD_REQUEST, HTTP_NOT_FOUND, HTTP_CREATED, HTTP_FOUND } = process.env
 
-const { httpError } = require('../../helpers/helperError')
+const { httpError } = require('../../helpers/error.helper')
 
 const { createVideogame } = require('../services/database/createVideogame.service')
 const { findAllVideogames } = require('../services/database/findAllVideogames.service')

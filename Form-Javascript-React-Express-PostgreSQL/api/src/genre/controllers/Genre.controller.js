@@ -1,7 +1,7 @@
 require('dotenv').config()
 const { HTTP_CREATED, HTTP_FOUND, HTTP_BAD_REQUEST, HTTP_NOT_FOUND } = process.env
 
-const { httpError } = require('../../helpers/helperError')
+const { httpError } = require('../../helpers/error.helper')
 
 const { createGenre } = require('../services/database/createGenre.service')
 const { findGenres } = require('../services/database/findGenres.service')
